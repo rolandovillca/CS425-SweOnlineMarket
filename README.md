@@ -5,7 +5,7 @@
 * docker
 * docker-compose
 
-##How to setup the environment:
+## How to setup the environment:
 
 ### Initialize MySQL database:
 * sudo docker-compose up -d
