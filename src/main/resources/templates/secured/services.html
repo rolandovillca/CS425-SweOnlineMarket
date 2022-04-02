@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{layouts/master-layout}">
+<head>
+    <title>OnlineMarket - Services</title>
+</head>
+<body>
+    <div layout:fragment="content" style="padding-top:1em;" class="container">
+        <h3>Online Shopping<sup>&reg;</sup> Services</h3>
+        <hr/>
+        <div style="font-size: 1em">
+            <br/>
+            <div class="row">
+
+                <div sec:authorize="hasAuthority('BUYER')" class="col-md-4">
+                    <div style="font-size: 1em;">
+                        <div class="card border-primary mb-3" style="max-width: 20rem;">
+                            <div class="card-header">WELCOME TO ONLINE MARKET</div>
+                            <div class="card-body">
+                                <h4 class="card-title">Buyer Tools</h4>
+                                <p class="card-text">
+                                    <a style="text-decoration: inherit;" href="/onlinemarket/secured/services/products/list">
+                                        List of products
+                                    </a>
+                                </p>
+                                <p class="card-text">
+                                    <!-- <a href="/elibrary/secured/services/admin/versioninfo">-->
+                                    <a style="text-decoration: inherit;" th:href="@{|/onlinemarket/cart/${currentUser.userId}|}">
+                                        Shopping Cart
+                                    </a>
+                                </p>
+                                <p class="card-text">
+                                    <a style="text-decoration: inherit;"  th:href="@{|/orders/user/${currentUser.userId}|}">
+                                        View Orders
+                                    </a>
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div sec:authorize="hasAuthority('SELLER')" class="col-md-4">
+                    <div style="font-size: 1em;">
+                        <div class="card border-primary mb-3" style="max-width: 20rem;">
+                            <a style="text-decoration: inherit;" href="/onlinemarket/secured/services/seller/sellerPage">
+                                <div style="color: #1a1a1a;" class="card-header">Welcome Seller</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Seller Options</h4>
+                                    <p class="card-text">
+                                        <a style="text-decoration: inherit;" th:href="@{|/onlinemarket/secured/services/products/my-products/${currentUser.userId}|}">
+                                            List of products
+                                        </a>
+                                    </p>
+                                    <p class="card-text">
+                                        Add Products
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div sec:authorize="hasAuthority('ADMIN')" class="col-md-4">
+                    <div style="font-size: 1em;">
+                        <div class="card border-primary mb-3" style="max-width: 20rem;">
+                            <div class="card-header">System Administration</div>
+                            <div class="card-body">
+                                <h4 class="card-title">Admin Tools</h4>
+                                <p class="card-text">
+                                    <a href="#">
+                                        Approve Seller
+                                    </a>
+                                </p>
+                                <p class="card-text">
+                                    <!-- <a href="/elibrary/secured/services/admin/versioninfo">-->
+                                    <a href="#">
+                                        Approve Reviews
+                                    </a>
+                                </p>
+                                <p class="card-text">
+                                    <a href="#">
+                                        Manage Users
+                                    </a>
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

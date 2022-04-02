@@ -1,0 +1,27 @@
+version: "3.1"
+
+services:
+  mysqldb8:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - root_password=root
+        - database=test
+        - user=sa
+        - password=sa
+    container_name: my_mysql8
+    # restart: always
+    volumes:
+      - ./data/db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  adminer:
+    image: adminer
+    container_name: my_adminer8
+    # restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb8

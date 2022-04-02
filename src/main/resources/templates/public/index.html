@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{layouts/master-layout}">
+<head>
+    <title>OnlineMarket </title>
+</head>
+<body>
+    <div layout:fragment="content" style="padding-top:1em;" class="container">
+        <h3>Welcome to the Online Market<sup>&reg;</sup></h3>
+        <hr/>
+        <div style="font-size: 1em">
+            <img th:src="@{/images/banner1.jpeg}"/><br/><br/>
+
+            <p sec:authorize="isAnonymous()">Already have access as a Member, Librarian or System Administrator? Then, simply <a href="/onlinemarket/public/login">Sign-In.</a>
+                to access the full range of services available to you, based on your role and access rights.</p>
+<!--            <p sec:authorize="isAuthorized()">Welcome authorized User</p>-->
+        </div>
+    </div>
+
+    <th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{layouts/master-layout}">
+<head>
+    <title>OnlineMarket - Home</title>
+</head>
+<body>
+    <div layout:fragment="content" style="padding-top:1em;" class="container">
+        <h3>Welcome to the onlinemarket Authorized user<sup>&reg;</sup></h3>
+        <hr/>
+        <div style="font-size: 1em">
+            <img th:src="@{/images/banner1.png}"/><br/><br/>
+
+
+            <p sec:authorize="isAnonymous()">Already have access as a Member, Librarian or System Administrator? Then, simply <a href="/onlinemarket/public/login">Sign-In.</a>
+                to access the full range of services available to you, based on your role and access rights.</p>
+
+
+        </div>
+    </div>
+
+
+
+    <th:block layout:fragment="footer"></th:block>
+
+<!--    <span sec:authorize="isAnonymous()" style="color:#fff;padding-left: 2em; padding-right: 1em;">Welcome, Guest</span>-->
+<!--    <span sec:authorize="isAuthenticated()" style="color:#fff;padding-left: 0em; padding-right: 0.5em;">Welcome, </span><span sec:authorize="isAuthenticated()" style="color:#fff;padding-left: 0em; padding-right: 0.5em;" sec:authentication="principal.username"></span>-->
+
+</body>
+</html>
