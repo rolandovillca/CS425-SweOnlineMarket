@@ -17,7 +17,7 @@ public class LibraryServicesController {
         return "secured/services";
     }
 
-    @GetMapping(value = {"/secured/services/admin/usrmgmt/list","/elibrary/secured/services/admin/usrmgmt/list"})
+    @GetMapping(value = {"/secured/services/admin/usrmgmt/list","/secured/services/admin/usrmgmt/list"})
     public String usrmgmtList() {
         return "secured/services/admin/usrmgmt/list";
     }
