@@ -1,0 +1,4 @@
+type of user         username         password
+Buyer                buyer             buyer
+Seller               seller           seller
+Administrator        admin            admin
